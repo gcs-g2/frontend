@@ -93,6 +93,7 @@ $alert-margin-from-edge: 30px;
   }
 }
 
+/* Main landing page */
 .pre-scrollable {
   max-height: 500px !important;
   height: 500px;
@@ -126,4 +127,12 @@ $alert-margin-from-edge: 30px;
 .e-single-note {
   @extend .alert;
   @extend .alert-warning;
+}
+
+/*
+ * Form styles
+ */
+.title-form {
+  font-size: 18px;
+  padding: 10px 12px;
 }

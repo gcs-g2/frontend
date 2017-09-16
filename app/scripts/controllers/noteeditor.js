@@ -9,19 +9,24 @@
  */
 angular.module('appBApp')
     .controller('NoteEditorCtrl', ['$scope', '$uibModalInstance', 'Notes', 'id', function ($scope, $uibModalInstance, Notes, id) {
-        $scope.currentNote = _.findWhere(Notes.list, {id: id});
+        // keep track of the current note
+        $scope.currentNoteIndex = _.findIndex(Notes.list, {id: id});
+        $scope.currentNote = Notes.list[$scope.currentNoteIndex];
 
+        $scope.originalNote = angular.copy($scope.currentNote);
+
+        // options for editor
         $scope.tinymceOptions = {
-            plugins: 'link image code charmap wordcount',
-            toolbar: 'bold italic | styleselect | link subscript superscript | undo redo | alignleft aligncenter alignright |',
-            menubar: false,
-            min_height: 100,
-            theme : 'modern'
+            plugins   : 'link image code charmap wordcount',
+            toolbar   : 'bold italic underline | styleselect | link subscript superscript | undo redo | alignleft aligncenter alignright |',
+            menubar   : false,
+            min_height: 300,
+            theme     : 'modern'
         };
 
-        $scope.close = function() {
+        // when closing, replace edited note with original version
+        $scope.close = function () {
+            Notes.list.splice($scope.currentNoteIndex, 1, $scope.originalNote);
             $uibModalInstance.dismiss('cancel');
         };
-
-        console.log($scope.currentNote);
     }]);
