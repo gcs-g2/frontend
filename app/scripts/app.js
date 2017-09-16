@@ -17,7 +17,8 @@ angular
         'ngSanitize',
         'ngTouch',
         'ui.bootstrap',
-        'restangular'
+        'restangular',
+        'ui.tinymce'
     ])
     .config(function ($routeProvider) {
         $routeProvider
@@ -34,4 +35,10 @@ angular
             .otherwise({
                 redirectTo: '/'
             });
-    });
+    })
+    .filter('plainText', function () {
+            return function (text) {
+                return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+            };
+        }
+    );

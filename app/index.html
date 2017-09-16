@@ -34,7 +34,7 @@
                         {{note.title}}
                     </div>
                     <div class="e-note-snippet">
-                        {{note.text}}
+                        {{note.text | plainText}}
                     </div>
                     <div class="e-note-meta">
                         {{note.status}}
@@ -73,6 +73,8 @@
 <script src="bower_components/lodash/lodash.js"></script>
 <script src="bower_components/restangular/dist/restangular.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/tinymce/tinymce.js"></script>
+<script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
