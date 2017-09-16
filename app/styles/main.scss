@@ -14,6 +14,9 @@ body {
   padding: 0;
 }
 
+/* Global variables */
+$alert-margin-from-edge: 30px;
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -93,4 +96,34 @@ body {
 .pre-scrollable {
   max-height: 500px !important;
   height: 500px;
+}
+
+.chat-input-container {
+  margin-top: 5px;
+
+  .chat-input {
+    width: 65%;
+  }
+}
+
+.custom-bubble {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.user-message {
+  @extend .alert-info;
+  @extend .custom-bubble;
+  margin-left: $alert-margin-from-edge;
+}
+
+.robo-message {
+  @extend .alert-info;
+  @extend .custom-bubble;
+  margin-right: $alert-margin-from-edge;
+}
+
+.e-single-note {
+  @extend .alert;
+  @extend .alert-warning;
 }
