@@ -29,7 +29,7 @@
         <div class="col-md-6">
             <h4>Your Notes</h4>
             <div class="e-notes pre-scrollable">
-                <div class="e-single-note" ng-click="openNoteEditor()" ng-repeat="note in notes">
+                <div class="e-single-note" ng-click="openNoteEditor(note.id)" ng-repeat="note in notes">
                     <div class="e-note-title">
                         {{note.title}}
                     </div>
@@ -72,6 +72,7 @@
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/lodash/lodash.js"></script>
 <script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

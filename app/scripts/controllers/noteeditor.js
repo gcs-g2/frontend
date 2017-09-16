@@ -8,6 +8,7 @@
  * Controller of the appBApp
  */
 angular.module('appBApp')
-    .controller('NoteEditorCtrl', ['$scope', function ($scope) {
-        $scope.testText = "This is some text";
+    .controller('NoteEditorCtrl', ['$scope', 'Notes', 'id', function ($scope, Notes, id) {
+        $scope.currentNote = _.findWhere(Notes.list, {id: id});
+        console.log($scope.currentNote);
     }]);

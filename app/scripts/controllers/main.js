@@ -32,8 +32,8 @@ angular.module('appBApp')
 
         $scope.chatInput = '';
 
-        $scope.send = function() {
-            if(!$scope.chatInput) {
+        $scope.send = function () {
+            if (!$scope.chatInput) {
                 return;
             }
 
@@ -50,10 +50,13 @@ angular.module('appBApp')
             $scope.chatInput = '';
         };
 
-        $scope.openNoteEditor = function() {
+        $scope.openNoteEditor = function (noteID) {
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/note-editor.html',
-                controller: 'NoteEditorCtrl'
+                controller : 'NoteEditorCtrl',
+                resolve    : {
+                    id: noteID
+                }
             });
         }
 
