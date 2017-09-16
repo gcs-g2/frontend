@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="appBApp">
+<body ng-app="appBApp" ng-controller="MainCtrl">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -23,8 +23,103 @@
 <!-- Add your site or application content here -->
 <div class="container">
     <div class="row">
-        <div class="col-md-6">Column 1</div>
-        <div class="col-md-6">Column 2</div>
+        <div class="col-md-6">
+            <div class="e-notes pre-scrollable">
+                <div class="e-single-note">
+                    <h3>Artificial Intelligence</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 16, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>DAA</h3>
+                    <div class="e-note-snippet">
+                        DAA assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 20, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>Assignment with a long random name that I am putting for testing</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah more blah blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Dec 12, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>Artificial Intelligence</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 16, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>DAA</h3>
+                    <div class="e-note-snippet">
+                        DAA assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 20, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>Assignment with a long random name that I am putting for testing</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah more blah blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Dec 12, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>Artificial Intelligence</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 16, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>DAA</h3>
+                    <div class="e-note-snippet">
+                        DAA assignment to be done and blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Sep 20, 2017
+                    </div>
+                </div>
+                <div class="e-single-note">
+                    <h3>Assignment with a long random name that I am putting for testing</h3>
+                    <div class="e-note-snippet">
+                        AI assignment to be done and blah blah blah more blah blah blah blah
+                    </div>
+                    <div class="e-note-meta">
+                        Pending on Dec 12, 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="chatBox" class="message-box pre-scrollable" scroll-to-bottom="messages">
+                <div ng-repeat="message in messages">
+                    <strong>{{message.user}}:</strong>
+                    <span>{{message.data}}</span>
+                </div>
+            </div>
+            <form class="chat-input-container" ng-submit="send()">
+                <input class="chat-input" ng-model="chatInput" />
+                <button class="chat-submit">Send</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -47,6 +142,7 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
+<script src="scripts/directives/scrolltobottom.js"></script>
 <!-- endbuild -->
 </body>
 </html>
