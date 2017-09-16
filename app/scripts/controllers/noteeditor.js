@@ -12,9 +12,10 @@ angular.module('appBApp')
         $scope.currentNote = _.findWhere(Notes.list, {id: id});
 
         $scope.tinymceOptions = {
-            plugins: 'link image code charmap',
-            toolbar: 'bold italic | undo redo | alignleft aligncenter alignright |',
+            plugins: 'link image code charmap wordcount',
+            toolbar: 'bold italic | styleselect | link subscript superscript | undo redo | alignleft aligncenter alignright |',
             menubar: false,
+            min_height: 100,
             theme : 'modern'
         };
 
