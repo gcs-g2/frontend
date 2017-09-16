@@ -127,6 +127,18 @@ $alert-margin-from-edge: 30px;
 .e-single-note {
   @extend .alert;
   @extend .alert-warning;
+
+  margin-bottom: 10px;
+
+  cursor: pointer;
+
+  .e-note-title {
+    font-weight: bold;
+  }
+
+  .e-note-meta {
+    font-size: 12px;
+  }
 }
 
 /*
