@@ -8,7 +8,7 @@
  * Controller of the appBApp
  */
 angular.module('appBApp')
-    .controller('MainCtrl', ["$scope", "$uibModal", function ($scope, $uibModal) {
+    .controller('MainCtrl', ["$scope", "$uibModal", "Notes", function ($scope, $uibModal, Notes) {
         $scope.messages = [
             {
                 user: "user",
@@ -27,6 +27,8 @@ angular.module('appBApp')
                 data: "Why not?"
             }
         ];
+
+        $scope.notes = Notes.list;
 
         $scope.chatInput = '';
 
@@ -51,7 +53,7 @@ angular.module('appBApp')
         $scope.openNoteEditor = function() {
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/note-editor.html',
-                controller: 'NoteeditorCtrl'
+                controller: 'NoteEditorCtrl'
             });
         }
 
