@@ -28,7 +28,10 @@ angular.module('appBApp')
             }
         ];
 
-        $scope.notes = Notes.list;
+        Notes.getAll().then(function(resp){
+            Notes.list = resp;
+            $scope.notes = Notes.list;
+        });
 
         $scope.chatInput = '';
 

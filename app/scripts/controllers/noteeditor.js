@@ -9,11 +9,15 @@
  */
 angular.module('appBApp')
     .controller('NoteEditorCtrl', ['$scope', '$uibModalInstance', 'Notes', 'id', function ($scope, $uibModalInstance, Notes, id) {
-        // keep track of the current note
-        $scope.currentNoteIndex = _.findIndex(Notes.list, {id: id});
-        $scope.currentNote = Notes.list[$scope.currentNoteIndex];
+        var setUp = function() {
+            // keep track of the current note
+            $scope.currentNoteIndex = _.findIndex(Notes.list, {id: id});
+            $scope.currentNote = Notes.list[$scope.currentNoteIndex];
 
-        $scope.originalNote = angular.copy($scope.currentNote);
+            $scope.originalNote = angular.copy($scope.currentNote);
+        };
+
+        setUp();
 
         // options for editor
         $scope.tinymceOptions = {
