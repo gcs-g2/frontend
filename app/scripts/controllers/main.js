@@ -89,7 +89,7 @@ angular.module('appBApp')
 
         $scope.openNoteEditor = function (noteID, title, date, status) {
             if (!noteID) {
-                noteID = '';
+                noteID = -1;
             }
 
             if (!title) {
@@ -103,8 +103,6 @@ angular.module('appBApp')
             if (!status) {
                 $rootScope.status = 'pending';
             }
-
-            console.log($rootScope);
 
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/note-editor.html',
