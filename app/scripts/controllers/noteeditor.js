@@ -8,15 +8,19 @@
  * Controller of the appBApp
  */
 angular.module('appBApp')
-    .controller('NoteEditorCtrl', ['$scope', '$uibModalInstance', 'Notes', 'id', function ($scope, $uibModalInstance, Notes, id) {
+    .controller('NoteEditorCtrl', ['$scope', '$uibModalInstance', '$rootScope', 'Notes', 'id', function ($scope, $uibModalInstance, $rootScope, Notes, id) {
         var setUp = function () {
             // keep track of the current note
             $scope.currentNoteIndex = _.findIndex(Notes.list, {id: id});
             $scope.isNewNote = false;
+            console.log($rootScope);
 
             // if note is not found, create a new note
             if ($scope.currentNoteIndex === -1) {
                 $scope.currentNote = Notes.new();
+                $scope.currentNote.title = $rootScope.noteTitle;
+                $scope.currentNote.date = $rootScope.date;
+                $scope.currentNote.status = $rootScope.status;
                 $scope.isNewNote = true;
             } else {
                 $scope.currentNote = Notes.list[$scope.currentNoteIndex];
@@ -36,9 +40,9 @@ angular.module('appBApp')
         };
 
         // save/update a note
-        $scope.save = function() {
-            $scope.currentNote.save().then(function(resp){
-                if($scope.isNewNote) {
+        $scope.save = function () {
+            $scope.currentNote.save().then(function (resp) {
+                if ($scope.isNewNote) {
                     Notes.list.splice(0, 0, resp);
                 }
                 $uibModalInstance.dismiss();
