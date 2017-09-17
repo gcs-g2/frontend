@@ -25,15 +25,15 @@ angular.module('appBApp')
         $scope.messageSequence = [
             {
                 field: "title",
-                data : "What do you want me to remember for you?"
+                data : "What topic can I remember for you?"
             },
             {
                 field: "date",
-                data : "When is it due?"
+                data : "When date is it due on?"
             },
             {
                 field: "create",
-                data : "Let's go ahead and create a note for it"
+                data : "Let's go ahead and create a note for you. Confirm by entering yes."
             }
         ];
 
