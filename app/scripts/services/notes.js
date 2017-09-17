@@ -14,7 +14,7 @@ angular.module('appBApp')
             id    : '',
             title : '',
             text  : '',
-            date  : '',
+            date  : moment().format("YYYY:MM:DD HH:mm:ss"),
             status: 'pending'
         };
 
