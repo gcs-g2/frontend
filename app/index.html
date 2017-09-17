@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h4>Your Notes</h4>
+            <h4>Your Notes<button class="btn btn-primary btn-sm e-add-note-btn" ng-click="openNoteEditor(0)"><span class="glyphicon glyphicon-plus"></span></button></h4>
             <div class="e-notes pre-scrollable">
                 <div class="e-single-note" ng-click="openNoteEditor(note.id)" ng-repeat="note in notes">
                     <div class="e-note-title">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h4>Talk to Robo</h4>
+            <h4>Get Help</h4>
             <div id="chatBox" class="message-box pre-scrollable" scroll-to-bottom="messages">
                 <div ng-repeat="message in messages" class="alert" ng-class="{'user-message': message.user == 'user', 'robo-message': message.user == 'robo'}">
                     <strong>{{message.user}}:</strong>

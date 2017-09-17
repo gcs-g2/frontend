@@ -9,12 +9,19 @@
  */
 angular.module('appBApp')
     .controller('NoteEditorCtrl', ['$scope', '$uibModalInstance', 'Notes', 'id', function ($scope, $uibModalInstance, Notes, id) {
-        var setUp = function() {
+        var setUp = function () {
             // keep track of the current note
             $scope.currentNoteIndex = _.findIndex(Notes.list, {id: id});
-            $scope.currentNote = Notes.list[$scope.currentNoteIndex];
+            $scope.isNewNote = false;
 
-            $scope.originalNote = angular.copy($scope.currentNote);
+            // if note is not found, create a new note
+            if ($scope.currentNoteIndex === -1) {
+                $scope.currentNote = Notes.new();
+                $scope.isNewNote = true;
+            } else {
+                $scope.currentNote = Notes.list[$scope.currentNoteIndex];
+                $scope.originalNote = angular.copy($scope.currentNote);
+            }
         };
 
         setUp();
@@ -28,9 +35,21 @@ angular.module('appBApp')
             theme     : 'modern'
         };
 
+        // save/update a note
+        $scope.save = function() {
+            $scope.currentNote.save().then(function(resp){
+                if($scope.isNewNote) {
+                    Notes.list.splice(0, 0, resp);
+                }
+                $uibModalInstance.dismiss();
+            });
+        };
+
         // when closing, replace edited note with original version
         $scope.close = function () {
-            Notes.list.splice($scope.currentNoteIndex, 1, $scope.originalNote);
+            if (!$scope.isNewNote) {
+                Notes.list.splice($scope.currentNoteIndex, 1, $scope.originalNote);
+            }
             $uibModalInstance.dismiss('cancel');
         };
     }]);

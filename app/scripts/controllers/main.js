@@ -61,6 +61,6 @@ angular.module('appBApp')
                     id: noteID
                 }
             });
-        }
+        };
 
     }]);
